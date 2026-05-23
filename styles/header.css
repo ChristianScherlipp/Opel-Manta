@@ -1,19 +1,25 @@
 .header {
     width: 100%;
+    height: 6rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: red; /* For browsers that do not support gradients */
-    background-image: repeating-radial-gradient( yellow, orange 50%, red 100%);
-    animation-name: bgHeader;
-    animation-duration: 3s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
+    background-image: radial-gradient( yellow, orange , red);
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.header-icon > img {
+    width: 4rem;
     
 }
 
-@keyframes bgHeader {
-    0% {background-image: repeating-radial-gradient(yellow, orange 50%, red 100%);}
-    50% {background-image: repeating-radial-gradient(orange, red 50%, yellow 100%);}
-    100% {background-image: repeating-radial-gradient(red, yellow 50%, orange 100%);}
+.header-icon > p {
+    font-size: 4rem;
+    
 }
