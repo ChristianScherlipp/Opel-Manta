@@ -89,6 +89,11 @@
     color: whitesmoke;
     border: 0px;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.mainNav_listBtn > button:hover{
+    color: rgb(255, 106, 0);
 }
 
 @media screen and (min-width: 1281px) {

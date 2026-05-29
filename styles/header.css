@@ -46,8 +46,13 @@
     font-family: 'Advent Pro';
     font-style: italic;
     font-size: 1.5rem;
+    font-weight: 500;
     color: whitesmoke;
     text-decoration: none;
+}
+
+.header-nav > ul > li > a:hover {
+    color: rgb(255, 106, 0);
 }
 
 @media screen and (min-width: 1281px) {
