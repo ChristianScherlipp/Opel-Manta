@@ -1,4 +1,19 @@
 
 .footer {
     height: 8rem;
+    padding-top: 80px;
+}
+
+.impressum {
+    border: 0px;
+    background-color: transparent;
+    font-family: 'Advent Pro';
+    font-size: 1.125rem;
+    color: whitesmoke;
+}
+
+@media screen and (min-width: 1281px) {
+    footer {
+        padding: 0px max(0px, calc(50% - 720px));
+    }
 }
