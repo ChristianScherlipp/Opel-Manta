@@ -1,35 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opel Manta</title>
+<!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Opel Manta</title>
 
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="styles/footer.css".css">
-    <link rel="stylesheet" href="./styles/font.css">
-    <link rel="shortcut icon" href="./assets/icons/opel_Manta.png" type="image/x-icon">
-</head>
-<body>
-    <header class="header">
-        <section class="header-icon">
-                <img src="./assets/icons/opel_Manta.png" alt="Das Logo von Opel">
-                <p class="header-name"><strong>Opel Manta</strong></p>
+        <link rel="stylesheet" href="./styles/header.css" />
+        <link rel="stylesheet" href="./styles/main.css" />
+        <link rel="stylesheet" href="styles/footer.css" />
+        <link rel="stylesheet" href="styles/globalStandards.css" />
+        <link rel="stylesheet" href="./styles/fonts/font.css" />
+        <link rel="shortcut icon" href="./assets/icons/opel_Manta.svg" type="image/x-icon">
+    </head>
+    <body onload="">
+        <header class="header">
+            <section class="header-icon">
+                <img src="./assets/icons/opel_Manta.svg" alt="Das Logo von Opel" />
+                <p class="header-name"><strong>MANTA</strong></p>
             </section>
-        <nav class="header-nav">
-            
-        </nav>
-    </header>
-    <main class="main">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="">GESCHICHTE</a></li>
+                    <li><a href="">MODELLE</a></li>
+                    <li><a href="">GALERIE</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            <section class="landinPage">
+                <section class="firstView">
+                <h1>OPEL MANTA</h1>
+                <p id="ikone"><strong>IKONE DER 70ER & 80ER</strong></p>
+                <p id="ikoneText">
+                    Kraftvoll. Markant. Kultig <br />
+                    Der Opel Manta begeistert seit <br />
+                    über 50 Jahre Generationen
+                </p>
+                <button class="goToGalery">Galerie Ansehen </button>
+                </section>
+            </section>
+            <section class="mainNav">
+                    <h2>GALERIE</h2>
+                    <section class="mainNav_listBtn">
+                        <button>Alle</button>
+                        <button>Manta Mattig </button>
+                        <button>Manta B</button>
+                    </section>
+                </section>
+                <section id="toRenderGalery" class="galery">
 
-    </main>
-    <footer class="footer">´
-        <section class="impressum">
-            Impressum
-        </section>
-
-    </footer>
-</body>
+                </section>
+        </main>
+        <footer class="footer">
+            <section class="impressum">Impressum</section>
+        </footer>
+    </body>
     <script src="./basic.js"></script>
 </html>
