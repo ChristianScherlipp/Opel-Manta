@@ -96,6 +96,56 @@
     color: rgb(255, 106, 0);
 }
 
+.galery {
+    width: 100%;
+}
+
+.galeryFolder {
+    width: 100%;
+}
+
+.renderCardStart {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#toRendercard:has(img:hover) img:not(:hover) {
+    opacity: 0.35;
+}
+/* Second row offset: NBBBBBN */
+#toRendercard img:nth-child(8) {
+    grid-column-start: 2;
+}
+
+.startCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.375rem;
+    height: 9.375rem;
+    background-color: transparent;
+    border-radius: 20%;
+    border: transparent;
+}
+
+.startCard > img {
+    width: 9.375rem;
+    height: 9.375rem;
+    border: 0.125rem solid blue;
+    border-radius: 20%;
+
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
 @media screen and (min-width: 1281px) {
     .main {
         padding: 0px max(0px, calc(50% - 720px));
