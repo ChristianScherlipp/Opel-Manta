@@ -4,108 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Opel Manta</title>
-
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
-    <link rel="stylesheet" href="styles/globalStandards.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/globalStandards.css" />
     <link rel="stylesheet" href="./styles/fonts/font.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/icons/opel_Manta.svg"
-      type="image/x-icon"
-    />
+    <link rel="stylesheet" href="./styles/folder.css" />
+    <link rel="shortcut icon" href="./assets/icons/opel_Manta.svg" type="image/x-icon" />
   </head>
   <body onload="init()">
-    <header class="header">
-      <section class="header-icon">
-        <img src="./assets/icons/opel_Manta.svg" alt="Das Logo von Opel" />
-        <p class="header-name"><strong>MANTA</strong></p>
-      </section>
+
+    <!-- HEADER bleibt fest im HTML -->
+    <header class="header" id="hero">
       <nav class="header-nav">
+        <section class="header-icon">
+          <img src="./assets/icons/opel_Manta.svg" alt="Das Logo von Opel" />
+          <p class="header-name"><strong>MANTA</strong></p>
+        </section>
         <ul>
-          <li><a href="">GESCHICHTE</a></li>
-          <li><a href="">MODELLE</a></li>
-          <li><a href="">GALERIE</a></li>
+          <li><a href="#galerie">GESCHICHTE</a></li>
+          <li><a href="#galerie">MODELLE</a></li>
+          <li><a href="#galerie">GALERIE</a></li>
         </ul>
       </nav>
+      <!-- Hero-Inhalt wird dynamisch gerendert -->
+      <div id="hero-content"></div>
     </header>
-    <main class="main">
-      <section class="landinPage">
-        <section class="firstView">
-          <h1>OPEL MANTA</h1>
-          <p id="ikone"><strong>IKONE DER 70ER & 80ER</strong></p>
-          <p id="ikoneText">
-            Kraftvoll. Markant. Kultig <br />
-            Der Opel Manta begeistert seit <br />
-            über 50 Jahre Generationen
-          </p>
-          <button class="goToGalery">Galerie Ansehen</button>
-        </section>
-      </section>
-      <section class="mainNav">
-        <h2>GALERIE</h2>
-        <section class="mainNav_listBtn">
-          <button>Alle</button>
-          <button>Manta Mattig</button>
-          <button>Manta B</button>
-        </section>
-      </section>
-      <section id="toRenderGalery" class="galery">
-        <section class="galeryFolder">
-          <button class="renderGelaryCardStartBtn" ondblclick=""></button>
-          <section id="toRendercard" class="renderCardStart">
 
-          </section>
-          <dialog class="galeryDialog">
-            <header class="">
-                <div>
-                    <h3>Der Start des Umbaus des Opel Manta Mattig beginnt</h3>
-                    <button class="closeBtn">X</button>
-                </div>
-              <article>
-                Endlich ist es soweit: Der Umbau des Opel Manta Mattig startet.
-                Nach langer Planung, der Beschaffung von Ersatzteilen und
-                zahlreichen Ideen beginnt nun die spannende Phase des Projekts.
-                Ziel ist es, den klassischen Opel Manta mit den markanten
-                Mattig-Komponenten neu aufzubauen und ihm seinen einzigartigen
-                Charakter zurückzugeben. <br />
-                Zu Beginn werden Karosserie, Fahrwerk und Technik gründlich
-                überprüft. Roststellen werden beseitigt, beschädigte Teile
-                ersetzt und die Basis für den weiteren Aufbau geschaffen.
-                Besonderes Augenmerk liegt dabei auf der originalen Mattig-Optik
-                mit den typischen Anbauteilen, die den Manta zu einem echten
-                Blickfang machen. <br />
-                Neben der optischen Aufwertung stehen auch technische
-                Verbesserungen auf dem Plan. Motor, Bremsen und Fahrwerk sollen
-                überarbeitet werden, um den Klassiker nicht nur optisch, sondern
-                auch fahrtechnisch auf ein neues Niveau zu bringen. Dabei wird
-                großer Wert auf Qualität und Liebe zum Detail gelegt. <br />
-                Mit dem Start des Umbaus beginnt eine spannende Reise, die den
-                Opel Manta Schritt für Schritt in ein individuelles Fahrzeug
-                verwandeln wird. Die Vorfreude auf das Endergebnis ist groß, und
-                die ersten Arbeiten markieren den Beginn eines Projekts, das
-                Leidenschaft für klassische Fahrzeuge und traditionelles Tuning
-                miteinander verbindet.
-              </article>
-            </header>
-            <main></main>
-            <footer></footer>
-          </dialog>
-        </section>
-        <section class="galeryFolder"></section>
-        <section class="galeryFolder"></section>
-        <section class="galeryFolder"></section>
-      </section>
+    <main class="main">
+      <!-- Galerie-Nav wird dynamisch gerendert -->
+      <div id="galerie-nav"></div>
+
+      <!-- Folder-Animation wird dynamisch gerendert -->
+      <div id="folder-root"></div>
     </main>
+
+    <!-- Dialog wird dynamisch gerendert -->
+    <div id="dialog-root"></div>
+
     <footer class="footer">
       <button class="impressum">Impressum</button>
     </footer>
+
+    <script src="./scripts/galery.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/basic.js"></script>
+    <script src="./scripts/gallery-dialog.js"></script>
   </body>
-  <script src="./scripts/galery.js"></script>
-  <script src="./scripts/templates.js"></script>
-  <script src="./scripts/basic.js"></script>
 </html>
-
-
-<img src="./assets/img/start/" alt="">

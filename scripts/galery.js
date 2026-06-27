@@ -1,3 +1,4 @@
+// Bildliste – gleiche Reihenfolge wie galery.js, numerisch sortiert
 const theStart = [
     '1.jpeg',
     '10.jpeg',

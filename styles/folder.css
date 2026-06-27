@@ -1,0 +1,378 @@
+/* ── FOLDER STAGE ─────────────────────────────────────── */
+.folder-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0 80px;
+    gap: 32px;
+}
+
+.folder-hint {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ── FOLDER CARD ─────────────────────────────────────── */
+.folder-card {
+    width: 200px;
+    height: 160px;
+    perspective: 1200px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.folder-toggle {
+    display: none;
+}
+
+.folder-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+.folder-card:hover .folder-container {
+    transform: rotateX(10deg) rotateY(-5deg);
+}
+
+/* ── FOLDER BODY ─────────────────────────────────────── */
+.folder-back {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+    background: rgb(180, 70, 0);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(255, 106, 0, 0.35);
+}
+
+.folder-back::before {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 12px;
+    width: 90px;
+    height: 28px;
+    background: rgb(180, 70, 0);
+    border-radius: 10px 10px 0 0;
+}
+
+.folder-front-wrapper {
+    position: absolute;
+    bottom: -7px;
+    width: 100%;
+    z-index: 90;
+    transform-origin: bottom center;
+    transition: transform 0.4s cubic-bezier(0.1175, 0.885, 0.32, 1.275);
+    border-radius: 12px;
+}
+
+.folder-card:hover .folder-container .folder-front-wrapper {
+    transform: rotateX(-50deg);
+}
+
+.folder-front {
+    width: 100%;
+    height: 138px;
+    background: rgba(255, 106, 0, 0.7);
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-end;
+    padding: 12px;
+}
+
+.folder-title {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.folder-label {
+    position: absolute;
+    width: 36px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.45);
+    top: 7px;
+    left: 20px;
+    border-radius: 10px;
+}
+
+/* ── FILE CARDS ──────────────────────────────────────── */
+.file {
+    position: absolute;
+    bottom: 4px;
+    left: 10%;
+    width: 80%;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 0;
+}
+
+.file-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Vorschaubild erscheint wenn Ordner offen */
+.folder-card:hover .folder-container .file-preview {
+    opacity: 1;
+}
+
+.file-1 { background: #7a3500; z-index: 25; transition-delay: 0.15s; }
+.file-2 { background: #a04800; z-index: 24; transition-delay: 0.10s; }
+.file-3 { background: #c45a00; z-index: 23; transition-delay: 0.05s; }
+.file-4 { background: #d96a00; z-index: 22; transition-delay: 0.02s; }
+.file-5 { background: #e87a10; z-index: 21; transition-delay: 0.00s; }
+
+.folder-card:hover .folder-container .file-1 {
+    transform: translateY(-80px) rotate(-10deg) translateX(-18px) translateZ(20px);
+}
+.folder-card:hover .folder-container .file-2 {
+    transform: translateY(-62px) rotate(8deg) translateX(20px) translateZ(10px);
+}
+.folder-card:hover .folder-container .file-3 {
+    transform: translateY(-45px) rotate(-15deg) translateX(-10px);
+}
+.folder-card:hover .folder-container .file-4 {
+    transform: translateY(-28px) rotate(-12deg) translateX(14px);
+}
+.folder-card:hover .folder-container .file-5 {
+    transform: translateY(-12px) rotate(-5deg);
+}
+
+/* ── SHINE ───────────────────────────────────────────── */
+.shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: none;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.folder-card:hover .folder-container .shine {
+    left: 150%;
+    transition: left 0.8s ease-in-out;
+    transition-delay: 0.3s;
+}
+
+/* ── FILE TEXT & TAG ─────────────────────────────────── */
+.file-text {
+    position: relative;
+    z-index: 6;
+    font-size: 9px;
+    color: #fff;
+    padding: 10px;
+    font-weight: 800;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s ease 0.2s;
+}
+
+.folder-card:hover .folder-container .file-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.file-tag {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    z-index: 6;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    backdrop-filter: blur(4px);
+    font-size: 7px;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 4px;
+    transform: translateX(10px);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+    opacity: 0;
+}
+
+.folder-card:hover .folder-container .file-tag {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── OPEN BUTTON ─────────────────────────────────────── */
+.open-gallery-btn {
+    width: 220px;
+    height: 52px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(255, 106, 0);
+    color: #fff;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-style: italic;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 106, 0, 0.4);
+    transition: background 0.2s, transform 0.15s;
+}
+
+.open-gallery-btn:hover {
+    background-color: rgb(220, 85, 0);
+    transform: translateY(-2px);
+}
+
+/* ── DIALOG ──────────────────────────────────────────── */
+.gallery-dialog {
+    border: none;
+    border-radius: 16px;
+    background: #111;
+    padding: 0;
+    width: min(92vw, 900px);
+    max-height: 90vh;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.gallery-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+}
+
+.dialog-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 24px;
+    gap: 16px;
+    position: relative;
+}
+
+.dialog-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.dialog-close:hover {
+    background: rgb(255, 106, 0);
+}
+
+/* Hauptbild */
+.dialog-img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.dialog-img-wrap img {
+    max-width: calc(100% - 100px);
+    max-height: 55vh;
+    border-radius: 10px;
+    object-fit: contain;
+    border: 2px solid rgba(255, 106, 0, 0.4);
+}
+
+.nav-btn {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 106, 0, 0.5);
+    border-radius: 50%;
+    background: transparent;
+    color: rgb(255, 106, 0);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-btn:hover {
+    background: rgb(255, 106, 0);
+    color: #fff;
+}
+
+/* Counter + Dateiname */
+.dialog-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0 4px;
+}
+
+/* Thumbnail-Leiste */
+.dialog-thumbs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255, 106, 0) transparent;
+}
+
+.thumb {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+}
+
+.thumb:hover {
+    transform: translateY(-2px);
+}
+
+.thumb.active {
+    border-color: rgb(255, 106, 0);
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
