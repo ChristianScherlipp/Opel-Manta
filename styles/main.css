@@ -5,28 +5,31 @@
 /* ── GALERIE NAV ─────────────────────────────────────────────── */
 .mainNav {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 16px;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 10px 20px;
+    padding: clamp(24px, 6vw, 40px) clamp(12px, 3vw, 10px) 20px;
 }
 
 .mainNav > h2 {
     font-family: 'Advent Pro', sans-serif;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 5vw, 2rem);
     color: whitesmoke;
 }
 
 .mainNav_listBtn {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 60px;
+    gap: clamp(1rem, 5vw, 60px);
 }
 
 .mainNav_listBtn > button {
     width: fit-content;
-    font-size: 2rem;
+    font-size: clamp(1rem, 3.5vw, 2rem);
     font-family: 'Advent Pro', sans-serif;
     font-weight: 800;
     font-style: italic;

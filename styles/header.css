@@ -14,12 +14,15 @@
 /* ── NAVBAR (oben, fest) ─────────────────────────────────────── */
 .header-nav {
     width: 100%;
-    height: 4rem;
+    min-height: 4rem;
+    height: auto;
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent);
-    padding: 0 30px;
+    padding: 10px clamp(16px, 4vw, 30px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -32,13 +35,13 @@
 }
 
 .header-icon > img {
-    width: 2rem;
+    width: clamp(1.4rem, 4vw, 2rem);
     filter: invert(53%) sepia(87%) saturate(2255%) hue-rotate(360deg) brightness(103%) contrast(104%);
     transition: filter 0.3s ease;
 }
 
 .header-name {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem);
     color: whitesmoke;
     font-family: 'Advent Pro', sans-serif;
     font-style: italic;
@@ -48,9 +51,10 @@
 
 .header-nav > ul {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 6.25rem;
+    gap: clamp(1rem, 4vw, 6.25rem);
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -59,7 +63,7 @@
 .header-nav > ul > li > a {
     font-family: 'Advent Pro', sans-serif;
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2.2vw, 1.5rem);
     font-weight: 500;
     color: whitesmoke;
     text-decoration: none;
@@ -75,7 +79,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 60px 35px 80px;
+    padding: clamp(28px, 6vw, 60px) clamp(18px, 5vw, 35px) clamp(48px, 8vw, 80px);
     position: relative;
 }
 
@@ -83,35 +87,35 @@
     font-family: 'Advent Pro', sans-serif;
     font-weight: bolder;
     font-style: italic;
-    font-size: 7rem;
+    font-size: clamp(2.4rem, 9vw, 7rem);
     color: black;
     margin: 0 0 20px;
 }
 
 #ikone {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 2.5rem;
+    font-size: clamp(1.1rem, 3.5vw, 2.5rem);
     color: rgb(255, 106, 0);
     margin: 0 0 16px;
 }
 
 #ikoneText {
     font-family: 'Advent Pro', sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1rem, 2.8vw, 2rem);
     color: whitesmoke;
-    margin: 0 0 60px;
+    margin: 0 0 clamp(32px, 6vw, 60px);
     line-height: 1.5;
 }
 
 .goToGalery {
-    width: 300px;
-    height: 60px;
+    width: min(300px, 100%);
+    height: clamp(48px, 8vw, 60px);
     border: none;
     border-radius: 10px;
     background-color: rgb(255, 106, 0);
     box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.3);
     font-family: 'Advent Pro', sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.1rem, 3vw, 2rem);
     color: #fff;
     cursor: pointer;
     transition: background 0.2s;

@@ -70,12 +70,12 @@ export function getDialogTemplate() {
                     <img id="dialogImg" src="" alt="Manta">
                 </div>
                 <div class="dialog-controls">
-                    <button class="nav-btn prev">&#8592;</button>
+                    <button class="nav-btn prev"><img src="./assets/icons/Arrow-Thick-Left.png" alt="Das Logo von Opel" /></button>
                     <div class="dialog-meta">
                         <span id="dialogCounter"></span>
                         <span id="dialogName"></span>
                     </div>
-                    <button class="nav-btn next">&#8594;</button>
+                    <button class="nav-btn next"><img src="./assets/icons/Arrow-Thick-Right.png" alt="Das Logo von Opel" /></button>
                 </div>
                 <div class="dialog-thumbs" id="dialogThumbs"></div>
             </div>
