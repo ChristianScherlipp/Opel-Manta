@@ -26,6 +26,46 @@ export function getGalerieNavTemplate() {
     `;
 }
 
+// ── GESCHICHTE ────────────────────────────────────────────────
+export function getGeschichteTemplate() {
+    return `
+        <section class="geschichte" id="geschichte">
+            <h2>GESCHICHTE</h2>
+            <div class="geschichte-tabs" id="geschichteTabs">
+                <button class="geschichte-tab active" data-history="mattig">Manta-Mattig</button>
+                <button class="geschichte-tab" data-history="mantaB">Manta B</button>
+            </div>
+            <article class="geschichte-article" id="geschichteArticle"></article>
+        </section>
+    `;
+}
+
+export function getHistoryArticleTemplate(entry) {
+    const intro = entry.intro ? `<p>${entry.intro}</p>` : '';
+    const paragraphs = (entry.paragraphs || []).map((p) => `<p>${p}</p>`).join('');
+    const sections = (entry.sections || []).map(getHistorySectionTemplate).join('');
+
+    return `
+        <h3>${entry.title}</h3>
+        ${intro}
+        ${paragraphs}
+        ${sections}
+    `;
+}
+
+function getHistorySectionTemplate(section) {
+    const paragraphs = section.paragraphs.map((p) => `<p>${p}</p>`).join('');
+    const list = section.list
+        ? `<ul>${section.list.map((item) => `<li>${item}</li>`).join('')}</ul>`
+        : '';
+
+    return `
+        <h4>${section.heading}</h4>
+        ${paragraphs}
+        ${list}
+    `;
+}
+
 // ── FOLDER GRID (Rahmen um alle Ordner-Karten) ─────────────────
 export function getFolderGridWrapperTemplate() {
     return `

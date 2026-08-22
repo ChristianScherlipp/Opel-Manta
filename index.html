@@ -1,51 +1,55 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Opel Manta</title>
-    <link rel="stylesheet" href="./styles/header.css" />
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="./styles/footer.css" />
-    <link rel="stylesheet" href="./styles/globalStandards.css" />
-    <link rel="stylesheet" href="./styles/fonts/font.css" />
-    <link rel="stylesheet" href="./styles/folder.css" />
-    <link rel="shortcut icon" href="./assets/icons/opel_Manta.svg" type="image/x-icon" />
-  </head>
-  <body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Opel Manta</title>
+        <link rel="stylesheet" href="./styles/header.css" />
+        <link rel="stylesheet" href="./styles/main.css" />
+        <link rel="stylesheet" href="./styles/footer.css" />
+        <link rel="stylesheet" href="./styles/globalStandards.css" />
+        <link rel="stylesheet" href="./styles/fonts/font.css" />
+        <link rel="stylesheet" href="./styles/folder.css" />
+        <link rel="stylesheet" href="./styles/geschichte.css" />
+        <link rel="shortcut icon" href="./assets/icons/opel_Manta.svg" type="image/x-icon" />
+    </head>
+    <body>
 
-    <!-- HEADER bleibt fest im HTML -->
-    <header class="header" id="hero">
-      <nav class="header-nav">
-        <section class="header-icon">
-          <img src="./assets/icons/opel_Manta.svg" alt="Das Logo von Opel" />
-          <p class="header-name"><strong>MANTA</strong></p>
-        </section>
-        <ul>
-          <li><a href="#galerie">GESCHICHTE</a></li>
-          <li><a href="#galerie">MODELLE</a></li>
-          <li><a href="#galerie">GALERIE</a></li>
-        </ul>
-      </nav>
-      <!-- Hero-Inhalt wird dynamisch gerendert -->
-      <div id="hero-content"></div>
-    </header>
+        <!-- HEADER bleibt fest im HTML -->
+        <header class="header" id="hero">
+        <nav class="header-nav">
+            <section class="header-icon">
+            <img src="./assets/icons/opel_Manta.svg" alt="Das Logo von Opel" />
+            <p class="header-name"><strong>MANTA</strong></p>
+            </section>
+            <ul>
+            <li><a href="#geschichte">GESCHICHTE</a></li>
+            <li><a href="#galerie">MODELLE</a></li>
+            <li><a href="#galerie">GALERIE</a></li>
+            </ul>
+        </nav>
+        <!-- Hero-Inhalt wird dynamisch gerendert -->
+        <div id="hero-content"></div>
+        </header>
 
-    <main class="main">
-      <!-- Galerie-Nav wird dynamisch gerendert -->
-      <div id="galerie-nav"></div>
+        <main class="main">
+            <!-- Galerie-Nav wird dynamisch gerendert -->
+            <div id="galerie-nav"></div>
+            
+            <!-- Folder-Animation wird dynamisch gerendert -->
+            <div id="folder-root"></div>
 
-      <!-- Folder-Animation wird dynamisch gerendert -->
-      <div id="folder-root"></div>
-    </main>
+            <!-- Geschichte wird dynamisch gerendert -->
+            <div id="geschichte-root"></div>
+        </main>
 
-    <!-- Dialog wird dynamisch gerendert -->
-    <div id="dialog-root"></div>
+        <!-- Dialog wird dynamisch gerendert -->
+        <div id="dialog-root"></div>
 
-    <footer class="footer">
-      <button class="impressum">Impressum</button>
-    </footer>
+        <footer class="footer">
+        <button class="impressum">Impressum</button>
+        </footer>
 
-    <script type="module" src="./scripts/app.js"></script>
-  </body>
+        <script type="module" src="./scripts/app.js"></script>
+    +  </body>
 </html>

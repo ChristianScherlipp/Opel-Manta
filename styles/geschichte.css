@@ -1,0 +1,81 @@
+/* ── GESCHICHTE ───────────────────────────────────────── */
+.geschichte {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: clamp(32px, 6vw, 56px) clamp(16px, 4vw, 20px) clamp(48px, 8vw, 72px);
+}
+
+.geschichte > h2 {
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    color: whitesmoke;
+    margin: 0 0 20px;
+}
+
+/* ── TABS ─────────────────────────────────────────────── */
+.geschichte-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.geschichte-tab {
+    border: 1px solid rgba(255, 106, 0, 0.4);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.geschichte-tab:hover {
+    border-color: rgb(255, 106, 0);
+    color: whitesmoke;
+}
+
+.geschichte-tab.active {
+    background: rgb(255, 106, 0);
+    border-color: rgb(255, 106, 0);
+    color: #fff;
+}
+
+/* ── ARTIKEL ──────────────────────────────────────────── */
+.geschichte-article h3 {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    color: rgb(255, 106, 0);
+    margin: 0 0 16px;
+}
+
+.geschichte-article h4 {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: clamp(1.05rem, 3vw, 1.25rem);
+    color: whitesmoke;
+    margin: 28px 0 10px;
+}
+
+.geschichte-article p {
+    font-size: clamp(0.92rem, 2.4vw, 1rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 14px;
+}
+
+.geschichte-article ul {
+    margin: 0 0 14px;
+    padding-left: 20px;
+}
+
+.geschichte-article li {
+    font-size: clamp(0.92rem, 2.4vw, 1rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 8px;
+}

@@ -1,8 +1,11 @@
 import { FolderCard } from './classes/folder-card.class.js';
 import { GalleryDialog } from './classes/gallery-dialog.class.js';
+import { HISTORY } from './data/geschichte.data.js';
 import {
     getHeroTemplate,
     getGalerieNavTemplate,
+    getGeschichteTemplate,
+    getHistoryArticleTemplate,
     getFolderGridWrapperTemplate,
     getDialogTemplate,
 } from './templates.js';
@@ -22,6 +25,7 @@ let dialog;
 
 function init() {
     renderHero();
+    renderGeschichte();
     renderGalerieNav();
     renderFolders();
     renderDialog();
@@ -34,6 +38,27 @@ function renderHero() {
     document.querySelector('.goToGalery').addEventListener('click', () => {
         document.getElementById('galerie').scrollIntoView({ behavior: 'smooth' });
     });
+}
+
+// ── GESCHICHTE ────────────────────────────────────────────────
+function renderGeschichte() {
+    document.getElementById('geschichte-root').innerHTML = getGeschichteTemplate();
+
+    document.querySelectorAll('.geschichte-tab').forEach((btn) => {
+        btn.addEventListener('click', () => selectHistoryTab(btn));
+    });
+
+    showHistory('mattig');
+}
+
+function selectHistoryTab(btn) {
+    document.querySelectorAll('.geschichte-tab').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    showHistory(btn.dataset.history);
+}
+
+function showHistory(key) {
+    document.getElementById('geschichteArticle').innerHTML = getHistoryArticleTemplate(HISTORY[key]);
 }
 
 // ── GALERIE NAV ───────────────────────────────────────────────
