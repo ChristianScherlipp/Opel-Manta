@@ -1,5 +1,5 @@
 // ── HERO ─────────────────────────────────────────────────────
-function getHeroTemplate() {
+export function getHeroTemplate() {
     return `
         <h1>OPEL MANTA</h1>
         <p id="ikone"><strong>IKONE DER 70ER &amp; 80ER</strong></p>
@@ -13,7 +13,7 @@ function getHeroTemplate() {
 }
 
 // ── GALERIE NAV ───────────────────────────────────────────────
-function getGalerieNavTemplate() {
+export function getGalerieNavTemplate() {
     return `
         <section class="mainNav" id="galerie">
             <h2>GALERIE</h2>
@@ -26,69 +26,56 @@ function getGalerieNavTemplate() {
     `;
 }
 
-// ── FOLDER ────────────────────────────────────────────────────
-function getFolderTemplate(previewImages) {
+// ── FOLDER GRID (Rahmen um alle Ordner-Karten) ─────────────────
+export function getFolderGridWrapperTemplate() {
     return `
         <section class="folder-stage">
-            <p class="folder-hint">Fahre über den Ordner – klicke zum Öffnen der Galerie</p>
-            <div class="folder-card">
-                <section class="folder-container">
-                    <section class="folder-back"></section>
-                    <section class="file file-5">
-                        <img class="file-preview" src="./assets/img/start/${previewImages[2]}" alt="Manta">
-                        <div class="shine"></div>
-                        <div class="file-text">${previewImages[2]}</div>
-                        <div class="file-tag">JPEG</div>
-                    </section>
-                    <section class="file file-4">
-                        <img class="file-preview" src="./assets/img/start/${previewImages[1]}" alt="Manta">
-                        <div class="shine"></div>
-                        <div class="file-text">${previewImages[1]}</div>
-                        <div class="file-tag">JPEG</div>
-                    </section>
-                    <section class="file file-3">
-                        <img class="file-preview" src="./assets/img/start/${previewImages[0]}" alt="Manta">
-                        <div class="shine"></div>
-                        <div class="file-text">${previewImages[0]}</div>
-                        <div class="file-tag">JPEG</div>
-                    </section>
-                    <section class="file file-2">
-                        <div class="shine"></div>
-                        <div class="file-text">manta_04.jpeg</div>
-                        <div class="file-tag">JPEG</div>
-                    </section>
-                    <section class="file file-1">
-                        <div class="shine"></div>
-                        <div class="file-text">manta_05.jpeg</div>
-                        <div class="file-tag">JPEG</div>
-                    </section>
-                    <section class="folder-front-wrapper">
-                        <div class="folder-front">
-                            <span class="folder-title">Manta Galerie</span>
-                        </div>
-                    </section>
-                    <section class="folder-label"></section>
-                </section>
-            </div>
-            <button class="open-gallery-btn">Galerie öffnen</button>
+            <p class="folder-hint">Fahre über einen Ordner – klicke zum Öffnen der Galerie</p>
+            <div class="folder-grid" id="folder-grid"></div>
         </section>
     `;
 }
 
+// ── EINZELNE FOLDER-CARD ────────────────────────────────────────
+export function getFolderCardTemplate(folder) {
+    const previewIndex = Math.min(3, folder.count);
+
+    return `
+        <div class="folder-item">
+            <div class="folder-card" data-folder="${folder.key}">
+                <section class="folder-container">
+                    <section class="folder-back"></section>
+                    <section class="file file-5">
+                        <img class="file-preview" src="${folder.getPath(previewIndex)}" alt="${folder.title}">
+                        <div class="shine"></div>
+                        <div class="file-text">${folder.title}</div>
+                        <div class="file-tag">JPEG</div>
+                    </section>
+                    <section class="folder-label"></section>
+                </section>
+            </div>
+            <p class="folder-name">${folder.title}</p>
+            <button class="open-gallery-btn">Galerie öffnen</button>
+        </div>
+    `;
+}
+
 // ── DIALOG ────────────────────────────────────────────────────
-function getDialogTemplate() {
+export function getDialogTemplate() {
     return `
         <dialog id="galleryDialog" class="gallery-dialog">
             <div class="dialog-inner">
                 <button class="dialog-close">&#10005;</button>
                 <div class="dialog-img-wrap">
-                    <button class="nav-btn prev">&#8592;</button>
                     <img id="dialogImg" src="" alt="Manta">
-                    <button class="nav-btn next">&#8594;</button>
                 </div>
-                <div class="dialog-meta">
-                    <span id="dialogCounter"></span>
-                    <span id="dialogName"></span>
+                <div class="dialog-controls">
+                    <button class="nav-btn prev">&#8592;</button>
+                    <div class="dialog-meta">
+                        <span id="dialogCounter"></span>
+                        <span id="dialogName"></span>
+                    </div>
+                    <button class="nav-btn next">&#8594;</button>
                 </div>
                 <div class="dialog-thumbs" id="dialogThumbs"></div>
             </div>

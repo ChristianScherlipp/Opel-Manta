@@ -8,6 +8,31 @@
     gap: 32px;
 }
 
+/* ── FOLDER GRID (mehrere Ordner nebeneinander) ───────── */
+.folder-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 48px 56px;
+}
+
+.folder-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.folder-name {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
 .folder-hint {
     font-family: 'Advent Pro', sans-serif;
     font-size: 1rem;
@@ -250,6 +275,9 @@
 
 /* ── DIALOG ──────────────────────────────────────────── */
 .gallery-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
     border: none;
     border-radius: 16px;
     background: #111;
@@ -294,21 +322,29 @@
     background: rgb(255, 106, 0);
 }
 
-/* Hauptbild */
+/* Hauptbild – feste Höhe, damit die Controls darunter nicht springen */
 .dialog-img-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
     flex: 1;
+    min-height: 0;
 }
 
 .dialog-img-wrap img {
-    max-width: calc(100% - 100px);
+    max-width: 100%;
     max-height: 55vh;
     border-radius: 10px;
     object-fit: contain;
     border: 2px solid rgba(255, 106, 0, 0.4);
+}
+
+/* Bedienleiste – fest unter dem Bild, bewegt sich nie mit */
+.dialog-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
 }
 
 .nav-btn {
@@ -332,11 +368,14 @@
 /* Counter + Dateiname */
 .dialog-meta {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
     font-family: 'Advent Pro', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.5);
-    padding: 0 4px;
+    text-align: center;
 }
 
 /* Thumbnail-Leiste */
